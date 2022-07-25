@@ -72,7 +72,11 @@ static int bootm_start(struct cmd_tbl *cmdtp, int flag, int argc,
 		       char *const argv[])
 {
 	memset((void *)&images, 0, sizeof(images));
+#if defined(CONFIG_IMAGE_FORCED_VERIFY)
+	images.verify = 1;
+#else
 	images.verify = env_get_yesno("verify");
+#endif
 
 	boot_start_lmb(&images);
 

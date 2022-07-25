@@ -36,6 +36,12 @@ config TIMESTAMP
 	  loaded that does not, the message 'Wrong FIT format: no timestamp'
 	  is shown.
 
+config IMAGE_FORCED_VERIFY
+	bool "Forced image doing verification"
+	help
+	  This option let you forced image doing verification. the verification
+	  can not be skipped via setting environment variable(verify) anymore.
+
 if FIT
 
 config FIT_EXTERNAL_OFFSET
