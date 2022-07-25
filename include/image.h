@@ -358,6 +358,8 @@ typedef struct bootm_headers {
 #if defined(CONFIG_LMB) && !defined(USE_HOSTCC)
 	struct lmb	lmb;		/* for memory mgmt */
 #endif
+
+	uint32_t	fw_ar_ver;	/* for firmware anti-rollback version */
 } bootm_headers_t;
 
 extern bootm_headers_t images;
@@ -945,6 +947,7 @@ int booti_setup(ulong image, ulong *relocated_addr, ulong *size,
 #define FIT_FPGA_PROP		"fpga"
 #define FIT_FIRMWARE_PROP	"firmware"
 #define FIT_STANDALONE_PROP	"standalone"
+#define FIT_FW_AR_VER_PROP	"fw_ar_ver"
 
 #define FIT_MAX_HASH_LEN	HASH_MAX_DIGEST_SIZE
 
@@ -1166,6 +1169,23 @@ int fit_conf_get_prop_node_index(const void *fit, int noffset,
  */
 int fit_conf_get_prop_node(const void *fit, int noffset,
 		const char *prop_name);
+
+/**
+ * fit_conf_get_fw_ar_ver() - Get fw anti-rollback version
+ *
+ * @fit: pointer to the FIT format image header
+ * @conf_noffset: component configuration node offset
+ * @fw_ar_ver: pointer to the ulong, will hold fw anti-rollback version
+ *
+ * fit_conf_get_fw_ar_ver() finds fw anti-rollback version property in a
+ * given component configuration node. If the property is found, its
+ * value is returned to the caller.
+ *
+ * returns:
+ *     0, on success
+ *    -1, on failure
+ */
+int fit_conf_get_fw_ar_ver(const void *fit, int conf_noffset, ulong *fw_ar_ver);
 
 int fit_check_ramdisk(const void *fit, int os_noffset,
 		uint8_t arch, int verify);
