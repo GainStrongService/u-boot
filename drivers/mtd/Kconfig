@@ -226,4 +226,6 @@ source "drivers/mtd/spi/Kconfig"
 
 source "drivers/mtd/ubi/Kconfig"
 
+source "drivers/mtd/nmbm/Kconfig"
+
 endmenu
