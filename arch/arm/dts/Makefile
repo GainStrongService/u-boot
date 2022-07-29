@@ -1232,6 +1232,8 @@ dtb-$(CONFIG_ARCH_MEDIATEK) += \
 	mt7629-rfb.dtb \
 	mt7981-rfb.dtb \
 	mt7981-snfi-nand-rfb.dtb \
+	mt7981-spim-nand-rfb.dtb \
+	mt7981-spim-nor-rfb.dtb \
 	mt7981-emmc-rfb.dtb \
 	mt7981-sd-rfb.dtb \
 	mt7986a-rfb.dtb \
