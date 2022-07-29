@@ -19,6 +19,10 @@
 		tick-timer = &timer0;
 	};
 
+	bl2_verify {
+		bl2_compatible = "sd";
+	};
+
 	reg_3p3v: regulator-3p3v {
 		compatible = "regulator-fixed";
 		regulator-name = "fixed-3.3V";
